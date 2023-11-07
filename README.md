@@ -37,8 +37,10 @@
 * MOTORSPEED
   >* MIN : 설비를 중지한 경우 0으로 표기
   >* MAX : 180이 넘는 이상치가 존재함
-  >* MELT_WEIGHT : Std의 경우 1,217로 차이가 큰 편임  
-  >* INSP : Std가 0으로 데이터들이 고르게 분포되어 있음
+
+* MELT_WEIGHT : Std의 경우 1,217로 차이가 큰 편임  
+
+* INSP : Std가 0으로 데이터들이 고르게 분포되어 있음
 
 ## HISTOGRAM
 
@@ -46,3 +48,32 @@
 
 <img width="484" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/6c63b26d-d4b3-4231-90b4-976cd5e1bdcd">
 
+* MELT_TEMP : 비교적 균형적인 분포를 보이고 있음
+
+* MOTORSPEED : 데이터가 극단적으로 분포되어 있음
+
+* MELT_WEIGHT : 데이터가 한쪽으로 치우쳐 있음
+
+* INSP : 비교적 균형적인 분포를 가지고 있음
+
+* TAG : 클래스 불균형이 보임 → 이후 전처리 작업을 통해 보완해야함
+
+## PATTERN ANALYSIS
+
+<img width="244" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/226a3937-e0a5-4768-9c86-94ef4a7521e4">
+
+* MELT_TEMP, MOTORSPEED : 비교적 일정한 패턴을 보이고 있음
+
+* MELT_WEIGHT : 지속적으로 감소하는 패턴을 보이고 있음
+
+* INSP : 비교적 불규칙적인 패턴을 보이고 있음
+
+## CORRELATION ANALYSIS(PEARSON)
+
+<img width="419" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/e6496099-7ef5-4a04-8268-6d30d6539c7a">
+
+* 종속변인 'TAG'와 독립변수들과 상관분석을 수행하였을 때, 'MELT_WEIGHT'를 제외하고는 모두 양의 상관관계를 가지고 있음
+
+* 'TAG'는 'MELT_WEIGHT'를 제외한 나머지 변수들과 선형 관계를 갖는다고 볼 수 있음
+
+* 또한 상관관계는 낮게 나오지만 어떤 영향을 미치는지 알아보기 위해 'MELT_WEIGHT'를 포함하여 모델 분석을 수행함함
