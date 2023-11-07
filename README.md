@@ -12,4 +12,5 @@
 
 ## 분석 목표
   -EDA(Exploratory Data Analysis), VI(Variable Importance)등을 통해 공정 과정에 영향을 주는 변수들을 분석함
-  -Machine Learning, Deep Learning(Sequence) model등을 사용해보고 성능을 비교
+  
+  -Machine Learning, Deep Learning(Sequence) model등을 사용해보고 성능을 비교함
