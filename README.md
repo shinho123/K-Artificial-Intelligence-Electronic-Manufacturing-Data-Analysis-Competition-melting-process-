@@ -18,5 +18,5 @@
 
 ## EDA(Exploratory Data Analysis)
   ### 데이터 구조
-  <img width="524" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/5a7a9d64-8da4-4b2d-bdf0-5453ecd0a3ae">
+
 
