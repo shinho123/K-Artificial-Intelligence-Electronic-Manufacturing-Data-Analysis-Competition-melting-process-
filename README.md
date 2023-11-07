@@ -1,6 +1,3 @@
-# K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition
-2022년 k-인공지능 제조데이터 분석 경진대회
-
 # 용해탱크 AI 데이터 셋 분석진행
 
 ## 용해혼합 공정이란 : 
@@ -77,3 +74,59 @@
 * 'TAG'는 'MELT_WEIGHT'를 제외한 나머지 변수들과 선형 관계를 갖는다고 볼 수 있음
 
 * 또한 상관관계는 낮게 나오지만 어떤 영향을 미치는지 알아보기 위해 'MELT_WEIGHT'를 포함하여 모델 분석을 수행함함
+
+## MODELING
+
+ ### DATA PREPROCESSING
+
+<img width="513" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/cee98b5d-55c6-4f03-b151-b6b5538517cf">
+
+## MODELING - DEEP LEARNING
+
+ ### MODEL VERIFICATION - LSTM
+ 
+<img width="452" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/471f111d-78a9-4bfa-b907-485987870b40">
+
+* F1-SCORE : 0.89
+
+* ACCURACY : 0.80
+
+* PRECISION : 0.99
+
+* RECALL : 0.80
+
+## MODELING - MACHINE LEARNING
+
+ ### MODEL VERIFICATION - CONFUSION MATRIX
+
+ <img width="510" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/beb988d3-1971-4901-bde7-5686f4105a5c">
+
+* 성능 순서 : Xgboost → Randomforest → Decision tree → Lightgbm → Catboost
+
+## MODELING - FEATURE IMPORTANCE
+
+ ### VI(Variable Importance) - Permutation Importance
+
+ <img width="372" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/19155bc5-a788-4f0c-9955-b47002d1179b">
+
+* Feature Selection(→ 중요도 순서) :
+ 
+ * MELT_TEMP → MELT_WEIGHT → INSP → MOTORSPEED
+
+## CONCLUSION
+
+* 본 프로젝트에서는 용해탱크 데이터 셋을 통해 총 2가지의 분석 목표를 가짐
+ 1. 설비운영값과 주요 품질검사항목의 결과값을 통해 생산품질을 예측할 수 있는 모델을 생성 후 검증을 진행함
+ 2. 생산품질에 영향을 주는 여러 요인들을 분석함
+
+* EDA
+ Correlation : **MELT_WEIGHT(용해탱크 내용중량)** 독립변수가 종속변수와 가장 관련이 없는 것으로 보였음
+
+ Pattern : **INSP(수분함유량)**이 가장 불규칙한 패턴을 보였음
+
+* MODELING : Deep Learning > Machine Learning
+ Deep Learning : LSTM
+ Machine Learning : Xgboost → Randomforest → Decision tree → Lightgbm → Catboost
+ VI-Permutation Importance : MELT_TEMP, MELT_WEIGHT
+
+* 설비운영값과 주요 품질검사항목의 결과값을 통해 분석을 진행한 결과 예측 모델에서는 Deep Learning(LSTM)의 성능이 가장 우수하였고, EDA에서는 **MELT_WEIGHT**가 종속변수와 관련 없는 변수로 도출되었으나 Machine Learning 모델의 VI를 통해 MELT_TEMP, MELT_WEIGHT의 독립변수가 성능 변화에 가장 큰 영향을 주는 요인으로 확인됨
