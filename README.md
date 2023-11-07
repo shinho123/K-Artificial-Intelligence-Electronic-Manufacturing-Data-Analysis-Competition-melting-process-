@@ -17,5 +17,6 @@
   -Machine Learning, Deep Learning(Sequence) model등을 사용해보고 성능을 비교함
 
 ## EDA(Exploratory Data Analysis)
-  -데이터 구조
-  ![image](https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/681a0d38-042c-4cf0-bad2-20c3304d6250)
+  ### 데이터 구조
+  <img width="524" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/5a7a9d64-8da4-4b2d-bdf0-5453ecd0a3ae">
+
