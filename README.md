@@ -27,6 +27,10 @@
   
   ### 요약 통계 분석
 
+```python
+df[['MELT_TEMP', 'MOTORSPEED', 'MELT_WEIGHT', 'INSP']].describe()
+```
+
   <img width="242" alt="통계 사진" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/e8ca5536-3931-4857-9832-9337fcfa5bed">
 
 * MELT_TEMP : MELT_TEMP의 MAX의 경우 이상치가 존재함
@@ -40,6 +44,16 @@
 * INSP : Std가 0으로 데이터들이 고르게 분포되어 있음
 
 ## HISTOGRAM
+
+```python
+plt.figure(figsize = (12, 12))
+for i in range(len(col_name)):
+    num = 231 + i
+    plt.subplot(num)
+    plt.hist(df[col_name[i]])
+    plt.xticks(rotation = 45)
+    plt.title(col_name[i])
+```
 
 ![image](https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/a4ff7998-bf7e-45c6-95ff-f4a41daaad3c)
 
@@ -57,7 +71,23 @@
 
 ## PATTERN ANALYSIS
 
-<img width="244" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/226a3937-e0a5-4768-9c86-94ef4a7521e4">
+```python
+plt.figure(figsize = (12, 12))
+for i in range(len(col_name)):
+    num = 221 + i
+    plt.subplot(num)
+    plt.plot(df[col_name[i]][0:120])
+    plt.xticks(rotation = 45)
+    plt.title(col_name[i])
+plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.2, hspace = 0.35)
+plt.show()
+```
+
+<img width="340" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/0f60d346-539a-4420-9973-50fdcd3594ed">
+
+* x축은 초 단위이며, 1초당 10개의 timestep을 가지고 있음
+
+* 본 그래프에서는 1수집주기(6초)기준으로 구간을 설정함
 
 * MELT_TEMP, MOTORSPEED : 비교적 일정한 패턴을 보이고 있음
 
@@ -66,6 +96,11 @@
 * INSP : 비교적 불규칙적인 패턴을 보이고 있음
 
 ## CORRELATION ANALYSIS(PEARSON)
+
+```python
+corr = df.corr(method = 'pearson')
+corr
+```
 
 <img width="419" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/e6496099-7ef5-4a04-8268-6d30d6539c7a">
 
@@ -106,6 +141,23 @@
 ## MODELING - FEATURE IMPORTANCE
 
  ### VI(Variable Importance) - Permutation Importance
+
+```pyhon
+perm = PermutationImportance(dsc).fit(x_test_values, y_test_values)
+eli5.show_weights(perm, top = 4, feature_names = train_set_feature.columns.tolist())
+
+perm = PermutationImportance(clf).fit(x_test_values, y_test_values)
+eli5.show_weights(perm, top = 4, feature_names = train_set_feature.columns.tolist())
+
+perm = PermutationImportance(xgb, scoring = "accuracy").fit(x_test_values, y_test_values)
+eli5.show_weights(perm, top = 4, feature_names = train_set_feature.columns.tolist())
+
+perm = PermutationImportance(cb, scoring = "accuracy").fit(x_test_values, y_test_values)
+eli5.show_weights(perm, top = 4, feature_names = train_set_feature.columns.tolist())
+
+perm = PermutationImportance(lgbm, scoring = "accuracy").fit(x_test_values, y_test_values)
+eli5.show_weights(perm, top = 4, feature_names = train_set_feature.columns.tolist())
+```
 
  <img width="372" alt="image" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/19155bc5-a788-4f0c-9955-b47002d1179b">
 
