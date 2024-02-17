@@ -6,17 +6,17 @@
 ## 용해혼합 공정이란 : 
   * 분말 원재료를 액상 원재료에 녹이는 공정을 의미함
 
-## 분석 목적
+## Ⅰ. 분석 목적
   * 용해혼합 공정 과정에서 가장 큰 영향을 주는 요인(변수)들을 식별함
   
   * 공정을 최적화 할 수 있는 분류 모델 생성
 
-## 분석 목표
+## Ⅱ. 분석 목표
   * EDA(Exploratory Data Analysis), VI(Variable Importance)등을 통해 공정 과정에 영향을 주는 변수들을 분석함
   
   * Machine Learning, Deep Learning(Sequence) model등을 사용해보고 성능을 비교함
 
-## EDA(Exploratory Data Analysis)
+## Ⅲ. EDA(Exploratory Data Analysis)
   ### 데이터 구조
 <img width="524" alt="데이터 사진" src="https://github.com/shinho123/K-Artificial-Intelligence-Electronic-Manufacturing-Data-Analysis-Competition/assets/105840783/57bbfca8-f275-46ec-a584-760b2a8c32a4">
 
@@ -113,7 +113,7 @@ corr
 
 * 또한 상관관계는 낮게 나오지만 어떤 영향을 미치는지 알아보기 위해 'MELT_WEIGHT'를 포함하여 모델 분석을 수행함함
 
-## MODELING
+## Ⅳ. MODELING
 
  ### DATA PREPROCESSING
 
@@ -168,7 +168,7 @@ eli5.show_weights(perm, top = 4, feature_names = train_set_feature.columns.tolis
  
  * MELT_TEMP → MELT_WEIGHT → INSP → MOTORSPEED
 
-## CONCLUSION
+## Ⅴ. CONCLUSION
 
 * 본 프로젝트에서는 용해탱크 데이터 셋을 통해 총 2가지의 분석 목표를 가짐
  1. 설비운영값과 주요 품질검사항목의 결과값을 통해 생산품질을 예측할 수 있는 모델을 생성 후 검증을 진행함
